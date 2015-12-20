@@ -1,21 +1,22 @@
 {
   "name": "FlowMaster",
   "version": "1.0.0",
-  "description": "A simple module that helps you to manage asynchronous operations and avoid callback hell, code smell or spaghetti code.",
+  "description": "A simple module that helps you to manage asynchronous operations in Node.js",
+  "author": "Adebowale Akinola <adebowalen@yahoo.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "readme": "README.md",
   "devDependencies": {
     "mocha": "~1.17.0",
     "should": "~2.1.1",
     "mongodb": "2.0.52"
   },
-  "license": "MIT",
-  "main": "index",
-  "readme": "README.md",
   "engines": {
     "node": ">=0.10.0"
   },
   "_npmVersion": "1.0.0",
   "_npmUser": {
-    "name": "walea",
+    "name": "walen007",
     "email": "adebowalen@yahoo.com"
   },
   "repository": {
