@@ -38,21 +38,5 @@ Callback format for successful operations:
 callback(null, {status: 'success', message: 'YOUR_SUCCESS_MESSAGE', 
   data: yourResponseData});
 
-
-Example:
--------------
-function doSomething(args, callback) {
-  //Perform some operations
-  
-  if (error) {
-    callback(error, {status: 'failed', message: 'YOUR_ERROR_MESSAGE'});
-  } else {
-    callback(null, {status: 'success', message: 'YOUR_SUCCESS_MESSAGE', 
-      data: yourResponseData});
-  }
-
-}
-
-
 More examples can be found in the test file:
 /test/FlowMasterSpec.js
