@@ -10,10 +10,49 @@ Run the "mocha" command to test the module.
 ---------------------------------------------
 <strong>mocha</strong>
 
+
 NB: You must have MongoDB running locally. The test wasn't configured to
 use MongoDB connection authentication. You can add authentication on
-line 115 of FlowMasterSpec.js, the test file is inside the "test" folder.
+line 115 of FlowMasterSpec.js, the test file can be found inside the 
+"test" folder.
 
-The module doesn't have to be used to manage async db ops alone. You 
-can use it on file read/write, streams or any other async operation
-in Node.js.
+
+Although this module's test uses MongoDB database asyncronous operations,
+the module does not have to be used to manage only async db ops. You 
+can use it to manage any type of asyncronous operations in Node.js.
+
+If any functions supplied to the FlowMaster.series() returns an error,
+the entire operation is aborted.
+
+Ensure that your functions return acceptable callback formats when using
+FlowMaster.series().
+
+
+Callback format for failed operations:
+----------------------------------------
+callback(err, {status: 'failed', message: 'YOUR_ERROR_MESSAGE'});
+
+
+Callback format for successful operations:
+--------------------------------------------
+callback(null, {status: 'success', message: 'YOUR_SUCCESS_MESSAGE', 
+  data: yourResponseData});
+
+
+Example:
+-------------
+function doSomething(args, callback) {
+  //Perform some operations
+  
+  if (error) {
+    callback(error, {status: 'failed', message: 'YOUR_ERROR_MESSAGE'});
+  } else {
+    callback(null, {status: 'success', message: 'YOUR_SUCCESS_MESSAGE', 
+      data: yourResponseData});
+  }
+
+}
+
+
+More examples can be found in the test file:
+/test/FlowMasterSpec.js

@@ -14,7 +14,7 @@ function saveTime(args, callback) {
   db.collection('fmTest').insert({timeNow: curTime},
     function(err, result) {
       if (err) {
-        callback(err, {status: 'failed', message: 'TIME_NOT_SAVED',
+        callback(err, {status: 'failed', message: 'SAVE_TIME_ERROR',
           data: curTime});
       } else {
         callback(null, {status: 'success', message: 'TIME_SAVED',
@@ -30,7 +30,7 @@ function getID(args, previousResult, callback) {
     {_id: 1}, function(err, result) {
 
       if (err) {
-        callback(err, {status: 'failed', message: 'UNABLE_TO_GET_ID'});
+        callback(err, {status: 'failed', message: 'GET_ID_ERROR'});
       } else {
         callback(null, {status: 'success', message: 'GOT_ID',
           data: result._id}); 
@@ -46,7 +46,7 @@ function addFName(args, previousResult, callback) {
     {$set: {fname: args[1]}}, function(err, result){
       
       if (err) {
-        callback(err, {status: 'failed', message: 'FNAME_NOT_ADDED'});
+        callback(err, {status: 'failed', message: 'ADD_FNAME_ERROR'});
       } else {
         callback(null, {status: 'success', message: 'FNAME_ADDED',
           data: previousResult.data});   
@@ -62,7 +62,7 @@ function addLName(args, previousResult, callback) {
     {$set: {lname: args[2]}}, function(err, result){
   
       if (err) {
-        callback(err, {status: 'failed', message: 'LNAME_NOT_ADDED'});
+        callback(err, {status: 'failed', message: 'ADD_LNAME_ERROR'});
       } else {
         callback(null, {status: 'success', message: 'LNAME_ADDED',
           data: previousResult.data}); 
@@ -77,7 +77,7 @@ function addGender(args, previousResult, callback) {
     {$set: {gender: args[3]}}, function(err, result){
 
       if (err) {
-        callback(err, {status: 'failed', message: 'GENDER_NOT_ADDED'});
+        callback(err, {status: 'failed', message: 'ADD_GENDER_ERROR'});
       } else {
         callback(null, {status: 'success', message: 'GENDER_ADDED',
           data: previousResult.data}); 
@@ -93,7 +93,7 @@ function getRec(args, previousResult, callback) {
     function(err, result){
     
     if (err) {
-      callback(err, {status: 'failed', message: 'REC_NOT_GOT'});
+      callback(err, {status: 'failed', message: 'GET_REC_ERROR'});
     } else {
       callback(null, {status: 'success', message: 'GOT_REC',
         data: result}); 

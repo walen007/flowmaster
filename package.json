@@ -1,7 +1,7 @@
 {
   "name": "FlowMaster",
   "version": "1.0.0",
-  "description": "A simple module that helps you to manage asyncronous operations and avoid callback hell, code smell or spaghetti code.",
+  "description": "A simple module that helps you to manage asynchronous operations and avoid callback hell, code smell or spaghetti code.",
   "devDependencies": {
     "mocha": "~1.17.0",
     "should": "~2.1.1",
