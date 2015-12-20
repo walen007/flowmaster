@@ -1,6 +1,6 @@
 'use strict';
 
-// Tests the FlowMaster Module.
+// Test file for FlowMaster Module.
 var should = require('should');
 var MongoClient = require('mongodb').MongoClient;
 
