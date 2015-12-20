@@ -1,6 +1,6 @@
 {
-  "name": "FlowMaster",
-  "version": "1.0.0",
+  "name": "flowmaster",
+  "version": "1.0.1",
   "description": "A simple module that helps you to manage asynchronous operations in Node.js",
   "author": "Adebowale Akinola <adebowalen@yahoo.com>",
   "license": "MIT",
@@ -14,9 +14,9 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "_npmVersion": "1.0.0",
+  "_npmVersion": "1.0.1",
   "_npmUser": {
-    "name": "walen007",
+    "name": "waleakinola",
     "email": "adebowalen@yahoo.com"
   },
   "repository": {
