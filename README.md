@@ -1,6 +1,11 @@
 A simple module that helps you to manage asyncronous operations and 
 avoid callback hell, code smell or spaghetti code.
 
+To install:
+------------------------------------------------------------
+<strong>sudo npm install flowmaster</strong> <br /><br />
+
+
 To run a test, please install the dependencies as follows:
 ------------------------------------------------------------
 <strong>sudo npm install</strong> <br />
