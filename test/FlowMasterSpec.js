@@ -4,14 +4,16 @@
 var should = require('should');
 var MongoClient = require('mongodb').MongoClient;
 
-var FlowMaster = require('../index.js');
-var fm = new FlowMaster();
+var fm = require('../index.js');
 var curTime = new Date().getTime();
+
+//Temporary collection name.
+var tcname = 'FlowMasterTest_' + curTime;
 
 
 function saveTime(args, callback) {
   var db = args[0];
-  db.collection('fmTest').insert({timeNow: curTime},
+  db.collection(tcname).insert({timeNow: curTime},
     function(err, result) {
       if (err) {
         callback(err, {status: 'failed', message: 'SAVE_TIME_ERROR',
@@ -26,7 +28,7 @@ function saveTime(args, callback) {
 
 function getID(args, previousResult, callback) {
   var db = args[0];
-  db.collection('fmTest').findOne({timeNow: previousResult.data},
+  db.collection(tcname).findOne({timeNow: previousResult.data},
     {_id: 1}, function(err, result) {
 
       if (err) {
@@ -42,7 +44,7 @@ function getID(args, previousResult, callback) {
 
 function addFName(args, previousResult, callback) {
   var db = args[0];
-  db.collection('fmTest').update({_id: previousResult.data},
+  db.collection(tcname).update({_id: previousResult.data},
     {$set: {fname: args[1]}}, function(err, result){
       
       if (err) {
@@ -58,7 +60,7 @@ function addFName(args, previousResult, callback) {
 
 function addLName(args, previousResult, callback) {
   var db = args[0];
-  db.collection('fmTest').update({_id: previousResult.data},
+  db.collection(tcname).update({_id: previousResult.data},
     {$set: {lname: args[2]}}, function(err, result){
   
       if (err) {
@@ -73,7 +75,7 @@ function addLName(args, previousResult, callback) {
 
 function addGender(args, previousResult, callback) {
   var db = args[0];
-  db.collection('fmTest').update({_id: previousResult.data},
+  db.collection(tcname).update({_id: previousResult.data},
     {$set: {gender: args[3]}}, function(err, result){
 
       if (err) {
@@ -89,7 +91,7 @@ function addGender(args, previousResult, callback) {
 function getRec(args, previousResult, callback) {
   var db = args[0];
   
-  db.collection('fmTest').findOne({_id: previousResult.data},
+  db.collection(tcname).findOne({_id: previousResult.data},
     function(err, result){
     
     if (err) {
@@ -121,6 +123,7 @@ describe('FlowMaster Module', function(){
         fm.series(db, 'Adebowale', 'Akinola', 'Male', arrayOfFunctions,
           function(err, result) {
             result.data.lname.should.equal('Akinola');
+            db.collection(tcname).drop();
             done();
         });
     
