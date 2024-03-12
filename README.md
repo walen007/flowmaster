@@ -1,4 +1,4 @@
-A simple module that helps you to manage asyncronous operations and 
+A simple NPM module that helps you to manage asyncronous operations and 
 avoid callback hell, code smell or spaghetti code.
 
 To install:
